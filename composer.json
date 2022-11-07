@@ -1,0 +1,36 @@
+{
+    "name": "sultanov-solutions/package_name",
+    "version": "0.0.1",
+    "autoload": {
+        "psr-4": {
+            "SultanovPackage\\%SERVICE_NAME%\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jamal Sultanov",
+            "email": "cl.jamal@gmail.com"
+        }
+    ],   
+    "require": {
+        "sultanov-solutions/laravel-base": "^1.0"
+    },
+    "require-dev": {
+        "sultanov-solutions/micro": "^0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SultanovPackage\\%SERVICE_NAME%\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "install-micro": [
+            "SultanovSolutions\\Micro\\Micro::copyStubs"
+        ],
+        "set-package-name": [
+            "SultanovSolutions\\Micro\\Micro::setPackageName"
+        ]
+    }
+}
