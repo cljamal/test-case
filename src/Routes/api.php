@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use SultanovPackage\MyCase\Controllers\ApiDataImport;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([], function () {
-    collect(scandir(__DIR__ . '/scopes'))
-        ->filter(fn($d) => $d !== '.' && $d !== '..')
-        ->each(fn($d) => require_once __DIR__ . '/scopes/' . $d);
+Route::group(['prefix' => 'data'], function(){
+    Route::get('excel', [ApiDataImport::class, 'getExcel']);
+    Route::get('sqlite', [ApiDataImport::class, 'getSQLite']);
+    Route::get('json', [ApiDataImport::class, 'getJSON']);
 });

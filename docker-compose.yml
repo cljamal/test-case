@@ -1,0 +1,16 @@
+version: '3'
+services:
+  webserver:
+    container_name: WebServer
+    hostname: WebServer
+    restart: unless-stopped
+    build: ./Docker/webserver
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/Docker
+      - ./Docker/webserver/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Docker/webserver/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./Docker/webserver/php/php.ini:/etc/php81/conf.d/settings.ini
+    working_dir: /var/www/html
+    ports:
+      - "8081:8080"
