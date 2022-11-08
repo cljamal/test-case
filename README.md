@@ -12,6 +12,11 @@ Composer dump autoload
 composer du
 ```
 
+install micro file dependencies to start from the scratch
+```
+composer install-micro
+```
+
 Create env file
 ```
 cp .env.example .env
@@ -42,6 +47,11 @@ docker exec -it WebServer composer install
 Composer dump autoload
 ```
 docker exec -it WebServer composer du
+```
+
+install micro file dependencies to start from the scratch
+```
+docker exec -it WebServer composer install-micro
 ```
 
 Create env file
